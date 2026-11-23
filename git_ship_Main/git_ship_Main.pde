@@ -69,8 +69,6 @@ void draw(){
      stars[i].update();
      stars[i].display();
     }
-    //location
-     alpha.display();
   
     //viewscreen
     if(showDialogue){
@@ -97,6 +95,7 @@ void init(){
   
   //checksum
   healthbar = new Checksum();
+  healthbar.checksum += pow(2, 2);
   //starfield simulation
   for(int i = 0; i < stars. length; i++){
     stars[i] = new Star();
@@ -107,18 +106,6 @@ void init(){
   for(String item : cargo){
     println(item);
   }
-  //location
-  char[] bin = binary(healthbar.checksum).toCharArray();
-  bin[bin.length-4] = '1';
-  bin[bin.length-8] = '1';
-  
-  //Space Station Alpha
-  alpha = new SpaceStation();
-  bin[bin.length-8] = '0';
-  //Space Station Alpha
-  
-  healthbar.checksum = unbinary(new String(bin));
-  
   //dialogue
   person = new Person();
   //junk
